@@ -306,7 +306,7 @@ async function getAllConfigVless(hostName) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLESS | BEXNXX</title>
+    <title>VLESS | HATARYXD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+6PCWJ+8zzHcXQjXGp6n5Yh9rX0x5fOdPaOqO+e2X4R5C1aE/BSqPIG+8y3O6APa8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -606,7 +606,7 @@ async function getAllConfigVless(hostName) {
             </ul>
         </div>
     </div>
-    <div class="watermark">© <a href="https://t.me/hataryXD" target="_blank">hataryXD</a></div>
+    <div class="watermark">© <a href="https://t.me/hataryXD" target="_blank">HATARYXD</a></div>
 
     <script>
         function showContent(contentId) {
