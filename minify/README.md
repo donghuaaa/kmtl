@@ -1,1 +1,1 @@
-tes
+This folder contains the built output assets for the worker "cf-worker-ws-dev" generated at 2023-07-15T22:12:41.508Z.
