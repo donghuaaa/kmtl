@@ -1,40 +1,39 @@
-name: "🔄 Sync all branches with main"
+name: "🌲 Create many branches"
 
 on:
   workflow_dispatch:
 
 jobs:
-  sync_branches:
+  create_branches:
     runs-on: ubuntu-latest
-    name: "🔄 Sync branches with main"
+    name: "🌲 Create and push branches"
     env:
       EMAIL: ${{ secrets.GH_EMAIL }}
       NAME: ${{ secrets.GH_USERNAME }}
       TOKEN: ${{ secrets.TOKEN }}
       REMOTE_NAME: origin
       BRANCH_BASE_NAME: proxyip
-      BRANCH_COUNT: 200
+      BRANCH_COUNT: 300
 
     steps:
-      - name: 🛠 Set up Git config
+      - name: ⚙️ Set up Git config
         run: |
           git config --global user.email "${{ env.EMAIL }}"
           git config --global user.name "${{ env.NAME }}"
 
-      - name: 📥 Clone repository
+      - name: 📦 Clone repository
         run: |
-          git clone https:///${{ env.TOKEN }}@github.com/${{github.repository}}.git
+          git clone https://${{ env.TOKEN }}@github.com/${{github.repository}}.git
           cd $(echo ${{github.repository}} | awk -F'/' '{print $2}')
 
-      - name: 🔄 Sync and push branches
+      - name: 🌿 Create and push branches
         run: |
           cd $(echo ${{github.repository}} | awk -F'/' '{print $2}')
-          git checkout main
-          git pull ${REMOTE_NAME} main
           for ((i=1; i<=${{ env.BRANCH_COUNT }}; i++)); do
-            branch_name="${{ env.BRANCH_BASE_NAME }}${i}"
-            git checkout $branch_name
-            git merge main --no-edit
-            git push ${REMOTE_NAME} $branch_name
-            git checkout main
+              branch_name="${{ env.BRANCH_BASE_NAME }}${i}"
+              git branch $branch_name
+              git checkout $branch_name
+              git commit --allow-empty -m "Create branch ${branch_name}"
+              git push ${{ env.REMOTE_NAME }} $branch_name
+              git checkout main
           done
